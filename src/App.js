@@ -6,26 +6,37 @@ import {
   Route,
   
 } from "react-router-dom";
-import Header from './Components/Header/Header';
+import Header from './Components/Shared/Header/Header';
+
+import AddService from './Components/AddService/AddService';
+import Home from './Components/Home/Home';
+import Service from './Components/Service/Service';
 import Banner from './Components/Banner/Banner';
 
 function App() {
   return (
     
      <Router>
-      <Header></Header>
-      <Banner></Banner>
        
+      
+       <Header></Header>
         <Switch>
-          <Route path="/about">
-          
-          </Route>
-          <Route path="/users">
-            
-          </Route>
-          <Route path="/">
+     
+        <Route path="/home">
+            <Home></Home>
         
           </Route>
+
+         <Route path="/addServices">
+           <AddService></AddService>
+          
+         </Route>
+         <Route exact path="/">
+            <Home></Home>
+        
+          </Route>
+         
+         
         </Switch>
     
     </Router>

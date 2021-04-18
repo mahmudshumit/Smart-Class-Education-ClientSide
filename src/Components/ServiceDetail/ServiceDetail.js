@@ -7,32 +7,32 @@ import { Button } from 'react-bootstrap';
 const ServiceDetail = () => {
     const history = useHistory();
     const handleProceedCheckout = () => {
-        
-        history.push('/order');
-       }
 
-    const {serviceId} = useParams();
-    const [service,setService] = useState({});
-useEffect(() =>{
-    
-    fetch('http://localhost:5055/service/' + serviceId)
-    .then(res=>res.json())
-    .then(data =>setService(data));
-},[serviceId])
+        history.push('/order');
+    }
+
+    const { serviceId } = useParams();
+    const [service, setService] = useState({});
+    useEffect(() => {
+
+        fetch('https://floating-lake-40748.herokuapp.com/service/' + serviceId)
+            .then(res => res.json())
+            .then(data => setService(data));
+    }, [serviceId])
 
 
     return (
-        
+
         <div class=" pt-5 mt-5" >
-            
+
             <Service showButton={false} service={service}>
-           
+
             </Service>
-            
-            <Button onClick={ handleProceedCheckout} variant="primary">Check Out </Button>
-                
-            </div>
-        
+
+            <Button onClick={handleProceedCheckout} variant="primary">Check Out </Button>
+
+        </div>
+
     );
 };
 

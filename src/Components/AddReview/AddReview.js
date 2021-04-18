@@ -15,7 +15,7 @@ const AddReview = () => {
       price: data.price,
       imageURL: imageURL
     };
-    const url = `http://localhost:5055/addReview`;
+    const url = `https://floating-lake-40748.herokuapp.com/addReview`;
 
 
     fetch(url, {

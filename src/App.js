@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  
+
 } from "react-router-dom";
 import Header from './Components/Shared/Header/Header';
 
@@ -28,55 +28,55 @@ export const UserContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
-     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      
-     <Router>
-       
-      
-       <Header></Header>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+
+      <Router>
+
+
+        <Header></Header>
         <Switch>
-     
-        <Route path="/home">
+
+          <Route path="/home">
             <Home></Home>
-          
+
           </Route>
           <Route path="/review">
             <AddReview></AddReview>
-        
+
           </Route>
 
-         <PrivateRoute path="/dashboard">
-           <AddService></AddService>
-           
-          
-         </PrivateRoute>
+          <PrivateRoute path="/dashboard">
+            <AddService></AddService>
 
-         <PrivateRoute path="/service/:serviceId">
-         <ServiceDetail></ServiceDetail>
-          
-         </PrivateRoute>
-         
-         <Route path="/order">
-           <Order></Order>
-          
-         </Route>
-         <Route path="/login">
-           <LogIn></LogIn>
-          
-         </Route>
-         <Route exact path="/">
+
+          </PrivateRoute>
+
+          <PrivateRoute path="/service/:serviceId">
+            <ServiceDetail></ServiceDetail>
+
+          </PrivateRoute>
+
+          <Route path="/order">
+            <Order></Order>
+
+          </Route>
+          <Route path="/login">
+            <LogIn></LogIn>
+
+          </Route>
+          <Route exact path="/">
             <Home></Home>
-        
+
           </Route>
-         
-         
+
+
         </Switch>
-    
-    </Router>
+
+      </Router>
     </UserContext.Provider>
   );
-      
-  
+
+
 
 }
 

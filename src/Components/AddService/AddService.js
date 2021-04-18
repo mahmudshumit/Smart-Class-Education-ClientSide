@@ -6,18 +6,18 @@ import axios from 'axios';
 
 const AddService = () => {
   const { register, handleSubmit, watch, errors } = useForm();
-  
-  const [imageURL, setImageURL] = useState(null);
-  const onSubmit = data =>{ 
 
-    const serviceData={
+  const [imageURL, setImageURL] = useState(null);
+  const onSubmit = data => {
+
+    const serviceData = {
       name: data.name,
       price: data.price,
       imageURL: imageURL
     };
-    const url =`http://localhost:5055/addService`;
-    
-    
+    const url = `https://floating-lake-40748.herokuapp.com/addService`;
+
+
     fetch(url, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -25,24 +25,24 @@ const AddService = () => {
     })
       .then(res => console.log(console.log('server side response', res)))
 
-    
+
   };
 
 
-  const handleImageUpload=event => {
+  const handleImageUpload = event => {
     console.log(event.target.files[0]);
     const imageData = new FormData();
-    imageData.set('key','177706c55ddb646faa3a47e706bb6e03');
-    imageData.append('image',event.target.files[0]);
+    imageData.set('key', '177706c55ddb646faa3a47e706bb6e03');
+    imageData.append('image', event.target.files[0]);
     axios.post('https://api.imgbb.com/1/upload',
-    imageData
-  )
-    .then(function (response) {
-      setImageURL(response.data.data.display_url);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      imageData
+    )
+      .then(function (response) {
+        setImageURL(response.data.data.display_url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
   }
   return (
@@ -57,7 +57,7 @@ const AddService = () => {
         <input name="price" defaultValue="price" ref={register} />
 
         <br />
-      
+
         <input name="exampleRequired" type="file" onChange={handleImageUpload} />
         <br />
 

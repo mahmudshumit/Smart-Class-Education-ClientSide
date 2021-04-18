@@ -22,17 +22,17 @@ const Header = () => {
                     <Link className="nav-link mr-5" to="/login">Login</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link mr-5" to="/addServices">AddService</Link>
+                    <Link className="nav-link mr-5" to="/dashboard">DashBoard</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link mr-5 text-white" to="/dashboard">Admin</Link>
+                    <Link className="nav-link mr-5" to="/order">Order</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link mr-5 text-white" to="#">Blogs</Link>
+                    <Link className="nav-link mr-5" to="/review">Review</Link>
                 </li>
-                <li className="nav-item">
-                    <Link className="nav-link mr-5 text-white" to="#">Contact Us</Link>
-                </li>
+               
+               
+               
             </ul>
         </div>
     </nav>
